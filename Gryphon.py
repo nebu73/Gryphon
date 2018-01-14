@@ -165,6 +165,7 @@ def monitor(pkt):
 	proto1=proto_parser(protos)
 	for i in proto1:
 		if i in pkt:
+			print(i)
 			print str(pkt)
 			os.system("python "+ str(protos[i])+ " 0 "+" "+ str(ip)+" "+str(ifc)+" "+str(key)+" Monitor"+ pkt)
 			f=open("aux.txt","r")
@@ -189,11 +190,12 @@ def monitor(pkt):
 
 
 def proto_parser(protos):
-	for i in protos:
-		aux=i.partition("PROTOS-")
-		aux=aux[1].partition(".py")
-		i=aux[0]
-	return protos
+	tipo_proto=""
+	if "ICMP" in protos[0]:
+		tipo_proto = "ICMP"
+	elif "DNS" in protos[0]:
+		tipo_proto = "DNS"
+	return tipo_proto
 
 # Establecemos el MAIN de nuestro programa desde el cual ejecutaremos todas las funciones que iremos creando.
 # ==============================MAIN==================================

@@ -2,12 +2,14 @@
 #Modulo del protocolo ICMP
 import sys
 from scapy.all import *
+
 total = len(sys.argv)
 typ=sys.argv[1]
 ip=sys.argv[2]
 ifc=sys.argv[3]
 key=sys.argv[4]
 load=sys.argv[5]
+
 if total <= 6:
 	#Si es para enviar paquetes
 	if typ!=0:
@@ -30,6 +32,7 @@ else:
 	print "Comenzamos el analisis del paquete ICMP"
 
 	if pkt[ICMP].type == 8 and pkt[IP].src==ip :
+		print("Entra en esta linea del if")
 		carga=carga[::-1]
 		carga=base64.b64decode(pkt[ICMP].load)
 		if carga.load[0:4] == key:
