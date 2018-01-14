@@ -191,8 +191,8 @@ def monitor(pkt):
 
 def proto_parser(protos):
 	tipo_proto=protos[0].partition("PROTOS-") #Protos_ICMP.py
-	tipo_proto=aux[0].partition(".py")
-	tipo_proto=aux[0].lstrip("PROTOS_")
+	tipo_proto=tipo_proto[0].partition(".py")
+	tipo_proto=tipo_proto[0].lstrip("PROTOS_")
 	return tipo_proto
 
 # Establecemos el MAIN de nuestro programa desde el cual ejecutaremos todas las funciones que iremos creando.
