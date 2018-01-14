@@ -5,6 +5,6 @@ This is a UnNdercover channel Sender/Receiver POC that sends messages from a pc 
 
 It uses the PROTOS_[Prococol].py archives as modules to charge as many protocols as needed. 
 
-Its beeing upgraded and Updated for Hack & Beers Bilbao .
+The Sending service is now working and stable, im working in the Receiver part .
 
 Have Fun Learning and Hacking!
