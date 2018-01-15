@@ -32,17 +32,16 @@ else:
 	pkt=z.read()
 	z.close()
 	pkt=pkt.split(",")
-	print "el contenido de pkt es: "+str(pkt)
+	#print "el contenido de pkt es: "+str(pkt)
 	carga=str(pkt[28].split("load="))
-	print "el valor de carga es"+str(carga)
-	print len(carga)
-	print "el valor de carga[0]es"+str(carga[0])
-	print "el valor de carga[1]es"+str(carga[1])
-	print "el valor de carga[2]es"+str(carga[2])
-	carga=carga[2].partition(")")
-	carga=carga(2).partition("'")
-	carga=carga[2].partition("'")
-	carga=carga[0]
+	print "El valor de carga es: "+str(carga)
+	i=18
+	mensaje=""
+	while carga[i]!="'":
+		mensaje = mensaje + str(carga[i])
+		i = i+1
+	print "El valor importante es: " + str(mensaje)
+	carga=mensaje
 	tipo=pkt[27].partition("=")
 	if str(tipo[2]) == str(8) :
 		print "POR FIN EVALUAMOS! y el valor de carga es:" +carga

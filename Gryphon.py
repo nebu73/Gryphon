@@ -96,7 +96,7 @@ def Conection_Proof(itf,ip,key,typ):
 			#respuesta si es positiva lo mantenemos si es negativa
 			#lo borramos del listado
 				payload="12345678"
-				os.system("python "+ i + " 1 " + str(ip)+ " "+str(ift)+" "+proof+" " + payload)
+				os.system("python "+ i + " 1 " + str(ip)+ " "+str(ift)+" "+"proof"+" " + payload)
 				if os.path.isfile("aux.txt"):
 					e=open("aux.txt","r")
 					proof=e.read()
